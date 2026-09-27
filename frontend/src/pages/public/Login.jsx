@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { Car, Lock, Mail, ArrowRight, ShieldCheck, UserCheck } from 'lucide-react';
+import { Car, Lock, Mail, ArrowRight } from 'lucide-react';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -30,11 +30,6 @@ export const Login = () => {
     }
   };
 
-  const handleQuickLogin = (demoEmail, demoPassword) => {
-    setEmail(demoEmail);
-    setPassword(demoPassword);
-  };
-
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 py-12 relative">
       {/* Background ambient glow */}
@@ -54,30 +49,6 @@ export const Login = () => {
           <p className="text-xs text-slate-400">Access your luxury bookings, saved vehicles, and concierge</p>
         </div>
 
-        {/* Demo Quick-Fill Buttons */}
-        <div className="p-3 rounded-2xl bg-white/5 border border-white/5 space-y-2">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block text-center">
-            One-Click Demo Credentials
-          </span>
-          <div className="grid grid-cols-2 gap-2">
-            <button
-              type="button"
-              onClick={() => handleQuickLogin('admin@apexwheels.com', 'Admin@123')}
-              className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/20 text-xs font-semibold transition-all"
-            >
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Admin Demo</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => handleQuickLogin('alex@example.com', 'User@123')}
-              className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-xl bg-brand-red/10 hover:bg-brand-red/20 text-rose-300 border border-brand-red/20 text-xs font-semibold transition-all"
-            >
-              <UserCheck className="w-3.5 h-3.5" />
-              <span>User Demo</span>
-            </button>
-          </div>
-        </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
